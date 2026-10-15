@@ -85,16 +85,20 @@ window.__ModuleLoader__.load({
      *
      * Geometry mirrors the shipped composer docks: the root is clipped to the
      * composer card width and inset, so the chips sit over the input card
-     * rather than spanning the conversation column. Every colour is a
-     * `--dsw-alias-*` theme token, so light and dark follow the Host palette.
+     * rather than spanning the conversation column. The seven levels form one
+     * compact segmented track that keeps its natural width and only starts
+     * scrolling inside itself on a very narrow window, so no label is clipped.
+     * Every colour is a `--dsw-alias-*` theme token, so light and dark follow
+     * the Host palette.
      */
     const CSS = `
 .cvm-dock{box-sizing:border-box;width:calc(100% - var(--dsh-composer-side-clearance,16px) - var(--dsh-composer-side-clearance,16px) - var(--dsh-composer-dock-inset,8px) - var(--dsh-composer-dock-inset,8px));max-width:calc(var(--dsh-composer-card-max-width,952px) - var(--dsh-composer-dock-inset,8px) - var(--dsh-composer-dock-inset,8px));margin:0 auto;padding:0 var(--dsh-composer-dock-inset,8px);display:flex;align-items:center;flex-wrap:wrap;gap:6px;min-width:0;color:var(--dsw-alias-label-secondary);font-size:12px;line-height:18px}
-.cvm-chips{display:flex;align-items:stretch;flex:1 1 auto;gap:2px;margin:0;padding:0;min-width:0;list-style:none}
-.cvm-item{display:flex;flex:1 1 0;min-width:0}
-.cvm-chip{box-sizing:border-box;display:flex;flex:1 1 auto;align-items:center;justify-content:center;min-width:0;height:24px;margin:0;padding:0 8px;border:.5px solid transparent;border-radius:var(--dsw-radius-sm,8px);background:0 0;color:var(--dsw-alias-label-secondary);font:inherit;font-size:12px;line-height:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer;transition:background-color .12s ease,color .12s ease}
-.cvm-chip:hover:not(:disabled){background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}
-.cvm-chip[aria-pressed="true"]{background:var(--dsw-alias-interactive-bg-active);color:var(--dsw-alias-label-primary);font-weight:500}
+.cvm-chips{display:flex;align-items:stretch;flex:0 1 auto;gap:2px;margin:0;padding:2px;min-width:0;max-width:100%;list-style:none;overflow-x:auto;scrollbar-width:none;background:var(--dsw-alias-interactive-bg-hover);border-radius:10px}
+.cvm-chips::-webkit-scrollbar{height:0}
+.cvm-item{display:flex;flex:none}
+.cvm-chip{box-sizing:border-box;display:flex;align-items:center;justify-content:center;height:22px;margin:0;padding:0 10px;border:.5px solid transparent;border-radius:8px;background:0 0;color:var(--dsw-alias-label-secondary);font:inherit;font-size:12px;line-height:18px;white-space:nowrap;cursor:pointer;transition:background-color .12s ease,color .12s ease,border-color .12s ease}
+.cvm-chip:hover:not(:disabled){color:var(--dsw-alias-label-primary)}
+.cvm-chip[aria-pressed="true"]{background:var(--dsw-alias-bg-layer-3);border-color:var(--dsw-alias-border-l2);color:var(--dsw-alias-label-primary);font-weight:500}
 .cvm-chip:focus-visible{outline:var(--dsw-focus-ring-width,2px) solid var(--dsw-focus-ring-color,var(--dsw-alias-state-business-primary));outline-offset:1px}
 .cvm-chip:disabled{cursor:default;opacity:.5}
 .cvm-sep{flex:none;width:1px;height:14px;margin:0 2px;background:var(--dsw-alias-border-l2)}
