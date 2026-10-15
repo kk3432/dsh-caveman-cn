@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="caveman">
+  <defs>
+    <linearGradient id="cvm-rock" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d97757" />
+      <stop offset="1" stop-color="#8a8a85" />
+    </linearGradient>
+  </defs>
+  <path d="M32 4l21 13v30L32 60 11 47V17z" fill="url(#cvm-rock)" />
+  <path d="M22 26h20M22 34h14M22 42h18" stroke="#1a1a18" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.75" />
+</svg>

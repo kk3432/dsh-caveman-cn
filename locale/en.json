@@ -1,0 +1,4 @@
+{
+  "title": "Caveman CN mode",
+  "description": "Terse caveman / classical-Chinese answers that cut output tokens ~75%, with a level control under the composer."
+}

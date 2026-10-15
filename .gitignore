@@ -1,0 +1,6 @@
+# Installed plugin artifacts and local tooling.
+node_modules/
+pnpm-lock.yaml
+*.log
+.DS_Store
+Thumbs.db

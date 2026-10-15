@@ -1,0 +1,50 @@
+{
+  "name": "@local/dsh-caveman",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Caveman CN 原始人模式: terse caveman / 文言文 speech levels for the DeepSeek Harness",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kk3432/dsh-caveman-cn.git"
+  },
+  "homepage": "https://github.com/kk3432/dsh-caveman-cn#readme",
+  "bugs": {
+    "url": "https://github.com/kk3432/dsh-caveman-cn/issues"
+  },
+  "icon": "./icon.svg",
+  "exports": {
+    ".": "./index.js",
+    "./host": "./host.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "index.js",
+    "host.js",
+    "client.js",
+    "icon.svg",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "test/*.test.mjs",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test test/host.test.mjs test/client.test.mjs"
+  },
+  "meta": {
+    "title": "Caveman CN 原始人模式",
+    "description": "让智能体用极简原始人语言 / 文言文回答，压缩约 75% 输出 token，并提供作曲栏下方的一键强度面板。"
+  },
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": ["@deepseek-ai/dsh-client-ui-conversation"]
+    }
+  }
+}

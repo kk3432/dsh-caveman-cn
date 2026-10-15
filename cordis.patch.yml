@@ -1,0 +1,10 @@
+- insert:
+    # One Host row: the projection, prompt section, tool, command and skill.
+    # The Client half rides the same package through `dsh.client` in
+    # package.json, so it needs no row of its own.
+    - id: caveman-cn
+      name: '@local/dsh-caveman'
+      config:
+        # Default caveman level for every new Session.
+        # off | lite | full | ultra | wenyan-lite | wenyan | wenyan-ultra
+        level: full
